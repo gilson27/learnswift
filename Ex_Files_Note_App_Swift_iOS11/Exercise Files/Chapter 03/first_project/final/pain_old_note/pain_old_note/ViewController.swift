@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var table: UITableView!
-    var data:[String] = ["Item1", "Item2", "Item3"];
+    var data:[String] = []
+    var fileURL:URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,11 @@ class ViewController: UIViewController, UITableViewDataSource {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
         self.navigationItem.rightBarButtonItem = addButton
         self.navigationItem.leftBarButtonItem = editButtonItem
+        
+        let baseURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        fileURL = baseURL.appendingPathComponent("notes.txt")
+        
+        load()
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,6 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         data.insert(name, at:0)
         let indexPath:IndexPath = IndexPath(row: 0, section: 0)
         table.insertRows(at: [indexPath], with: .automatic)
+        save()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,6 +52,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         cell.textLabel?.text = data[indexPath.row]
+        save()
         return cell
     }
     
@@ -58,11 +66,20 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     func save(){
-        
+//        UserDefaults.standard.set(data, forKey: "notes")
+        let a = NSArray(array: data)
+        do {
+            try a.write(to: fileURL, atomically: true)
+        } catch  {
+            print("Error Writing file")
+        }
     }
     
     func load(){
-        
+        if let loadedData:[String] = NSArray(contentsOf:fileURL) as? [String] {
+            data = loadedData
+            table.reloadData()
+        }
     }
 }
 
