@@ -33,6 +33,84 @@
             endingLineNumber = "12"
             landmarkName = "ViewController"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pain_old_note.ViewController.table.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITableView&gt;"
+                  moduleName = "pain_old_note"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilson/Documents/learning/git/learnswift/Ex_Files_Note_App_Swift_iOS11/Exercise%20Files/Chapter%2003/first_project/final/pain_old_note/pain_old_note/ViewController.swift"
+                  timestampString = "609264678.399745"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pain_old_note.ViewController.table.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITableView&gt;"
+                  moduleName = "pain_old_note"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilson/Documents/learning/git/learnswift/Ex_Files_Note_App_Swift_iOS11/Exercise%20Files/Chapter%2003/first_project/final/pain_old_note/pain_old_note/ViewController.swift"
+                  timestampString = "609264678.4053119"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "42">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pain_old_note.ViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; pain_old_note.ViewController"
+                  moduleName = "pain_old_note"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilson/Documents/learning/git/learnswift/Ex_Files_Note_App_Swift_iOS11/Exercise%20Files/Chapter%2003/first_project/final/pain_old_note/pain_old_note/ViewController.swift"
+                  timestampString = "609264678.408919"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pain_old_note.ViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;pain_old_note.ViewController&gt;"
+                  moduleName = "pain_old_note"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gilson/Documents/learning/git/learnswift/Ex_Files_Note_App_Swift_iOS11/Exercise%20Files/Chapter%2003/first_project/final/pain_old_note/pain_old_note/ViewController.swift"
+                  timestampString = "609264678.41338"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pain_old_note/ViewController.swift"
+            timestampString = "609264677.303489"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

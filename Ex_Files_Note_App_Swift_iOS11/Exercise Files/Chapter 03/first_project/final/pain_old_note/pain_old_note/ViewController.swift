@@ -8,15 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var table: UITableView!
     var data:[String] = []
     var fileURL:URL!
+    var selectedRow = -1
+    var newRowText:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        table.dataSource = self;
+        table.dataSource = self
+        table.delegate = self
         self.title = "Notes"
 //        self.navigationController?.navigationBar.prefersLargeTitles = true
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
@@ -28,6 +31,18 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         load()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if selectedRow == -1 {
+            return
+        }
+        data[selectedRow] = newRowText
+        if newRowText == "" {
+            data.remove(at: selectedRow)
+        }
+        table.reloadData()
+        save()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,11 +53,12 @@ class ViewController: UIViewController, UITableViewDataSource {
         if table.isEditing {
             return
         }
-        let name:String = "Item \(data.count + 1)"
+        let name:String = ""
         data.insert(name, at:0)
         let indexPath:IndexPath = IndexPath(row: 0, section: 0)
         table.insertRows(at: [indexPath], with: .automatic)
-        save()
+        table.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        self.performSegue(withIdentifier: "detail", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,6 +70,18 @@ class ViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = data[indexPath.row]
         save()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "detail", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailView:DetailViewController = segue.destination as! DetailViewController
+        selectedRow = table.indexPathForSelectedRow!.row
+        detailView.masterView = self
+        detailView.setText(t: data[selectedRow])
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
